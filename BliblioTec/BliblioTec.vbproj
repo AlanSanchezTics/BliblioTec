@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85042ADC-9C05-4A96-895A-A3F0E91D4995}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BliblioTec.My.MyApplication</StartupObject>
+    <RootNamespace>BliblioTec</RootNamespace>
+    <AssemblyName>BliblioTec</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BliblioTec.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BliblioTec.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bDatos.vb" />
+    <Compile Include="BDDBIBLIOTECADataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDDBIBLIOTECADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDDBIBLIOTECADataSet.vb">
+      <DependentUpon>BDDBIBLIOTECADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevoluciones.Designer.vb">
+      <DependentUpon>frmDevoluciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDevoluciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.vb">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\Categorias.designer.vb">
+      <DependentUpon>Categorias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Categorias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\Editoriales.designer.vb">
+      <DependentUpon>Editoriales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Editoriales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormAmonestaciones.designer.vb">
+      <DependentUpon>FormAmonestaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormAmonestaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormLectores.designer.vb">
+      <DependentUpon>FormLectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormLectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormLibros.designer.vb">
+      <DependentUpon>FormLibros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormLibros.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormRegistroAmonestacion.designer.vb">
+      <DependentUpon>FormRegistroAmonestacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormRegistroAmonestacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormRegistroLectores.designer.vb">
+      <DependentUpon>FormRegistroLectores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormRegistroLectores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\FormRegistroLibros.designer.vb">
+      <DependentUpon>FormRegistroLibros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FormRegistroLibros.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\frmPrestamos.Designer.vb">
+      <DependentUpon>frmPrestamos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\frmPrestamos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\Usuarios.designer.vb">
+      <DependentUpon>Usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevoluciones.resx">
+      <DependentUpon>frmDevoluciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Categorias.resx">
+      <DependentUpon>Categorias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Editoriales.resx">
+      <DependentUpon>Editoriales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormAmonestaciones.resx">
+      <DependentUpon>FormAmonestaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormLectores.resx">
+      <DependentUpon>FormLectores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormLibros.resx">
+      <DependentUpon>FormLibros.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormRegistroAmonestacion.resx">
+      <DependentUpon>FormRegistroAmonestacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormRegistroLectores.resx">
+      <DependentUpon>FormRegistroLectores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FormRegistroLibros.resx">
+      <DependentUpon>FormRegistroLibros.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\frmPrestamos.resx">
+      <DependentUpon>frmPrestamos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Usuarios.resx">
+      <DependentUpon>Usuarios.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BDDBIBLIOTECADataSet.xsc">
+      <DependentUpon>BDDBIBLIOTECADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDDBIBLIOTECADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDDBIBLIOTECADataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDDBIBLIOTECADataSet.xss">
+      <DependentUpon>BDDBIBLIOTECADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaper-tiltshift.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\596719.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\596717.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\596729.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\596705.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\596710.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\239397.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45844.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45845.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

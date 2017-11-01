@@ -1,0 +1,31 @@
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\bin\Debug\BliblioTec.exe
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\bin\Debug\BliblioTec.pdb
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\bin\Debug\BliblioTec.xml
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.Form1.resources
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.Resources.resources
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.vbproj.GenerateResource.Cache
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.exe
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.xml
+C:\Users\Alan Sanchez\AppData\Local\Temporary Projects\BliblioTec\obj\x86\Debug\BliblioTec.pdb
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.exe
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.xml
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.pdb
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\bin\Debug\BliblioTec.exe
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\bin\Debug\BliblioTec.pdb
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\bin\Debug\BliblioTec.xml
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.Form1.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.frmMenu.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.Resources.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.vbproj.GenerateResource.Cache
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.frmPrestamos.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.frmDevoluciones.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\bin\Debug\BliblioTec.exe.config
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.Categorias.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.Editoriales.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.Usuarios.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormAmonestaciones.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormLectores.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormLibros.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroAmonestacion.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroLectores.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroLibros.resources
