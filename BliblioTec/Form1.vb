@@ -1,5 +1,4 @@
 ﻿Public Class Form1
-    'hola k ase im joshua
     Private Sub btnentrar_Click(sender As System.Object, e As System.EventArgs) Handles btnentrar.Click
         strSQL = "proLogin"
         comando = New SqlClient.SqlCommand(strSQL, conexion)
