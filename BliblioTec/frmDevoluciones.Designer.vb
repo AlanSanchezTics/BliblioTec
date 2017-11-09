@@ -37,17 +37,19 @@ Partial Class frmDevoluciones
         Me.txtnlector = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgprestamos = New System.Windows.Forms.DataGridView()
-        Me.IDPRESTAMODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TituloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaPrestamoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaDevolDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btndevolucion = New System.Windows.Forms.Button()
+        Me.btnmod = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.IDDETPRESTAMO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Titulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EDICION = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaPrestamo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaDevol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ExisteDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.ViewDevBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDDBIBLIOTECADataSet = New BliblioTec.BDDBIBLIOTECADataSet()
-        Me.btndevolucion = New System.Windows.Forms.Button()
-        Me.btnmod = New System.Windows.Forms.Button()
         Me.ViewDevTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.viewDevTableAdapter()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,9 +92,8 @@ Partial Class frmDevoluciones
         Me.lblemail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblemail.Location = New System.Drawing.Point(454, 77)
         Me.lblemail.Name = "lblemail"
-        Me.lblemail.Size = New System.Drawing.Size(45, 15)
+        Me.lblemail.Size = New System.Drawing.Size(0, 15)
         Me.lblemail.TabIndex = 8
-        Me.lblemail.Text = "Label9"
         '
         'lbltel
         '
@@ -100,9 +101,8 @@ Partial Class frmDevoluciones
         Me.lbltel.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltel.Location = New System.Drawing.Point(454, 37)
         Me.lbltel.Name = "lbltel"
-        Me.lbltel.Size = New System.Drawing.Size(45, 15)
+        Me.lbltel.Size = New System.Drawing.Size(0, 15)
         Me.lbltel.TabIndex = 7
-        Me.lbltel.Text = "Label8"
         '
         'lbldireccion
         '
@@ -110,9 +110,8 @@ Partial Class frmDevoluciones
         Me.lbldireccion.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldireccion.Location = New System.Drawing.Point(178, 77)
         Me.lbldireccion.Name = "lbldireccion"
-        Me.lbldireccion.Size = New System.Drawing.Size(45, 15)
+        Me.lbldireccion.Size = New System.Drawing.Size(0, 15)
         Me.lbldireccion.TabIndex = 6
-        Me.lbldireccion.Text = "Label7"
         '
         'lblnombre
         '
@@ -120,9 +119,8 @@ Partial Class frmDevoluciones
         Me.lblnombre.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnombre.Location = New System.Drawing.Point(178, 40)
         Me.lblnombre.Name = "lblnombre"
-        Me.lblnombre.Size = New System.Drawing.Size(45, 15)
+        Me.lblnombre.Size = New System.Drawing.Size(0, 15)
         Me.lblnombre.TabIndex = 5
-        Me.lblnombre.Text = "Label6"
         '
         'Label5
         '
@@ -209,43 +207,90 @@ Partial Class frmDevoluciones
         Me.dtgprestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dtgprestamos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgprestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgprestamos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDPRESTAMODataGridViewTextBoxColumn, Me.TituloDataGridViewTextBoxColumn, Me.FechaPrestamoDataGridViewTextBoxColumn, Me.FechaDevolDataGridViewTextBoxColumn, Me.ExisteDataGridViewCheckBoxColumn})
+        Me.dtgprestamos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDETPRESTAMO, Me.ISBN, Me.Titulo, Me.EDICION, Me.FechaPrestamo, Me.FechaDevol, Me.ExisteDataGridViewCheckBoxColumn})
         Me.dtgprestamos.DataSource = Me.ViewDevBindingSource
         Me.dtgprestamos.Location = New System.Drawing.Point(705, 117)
         Me.dtgprestamos.MultiSelect = False
         Me.dtgprestamos.Name = "dtgprestamos"
         Me.dtgprestamos.ReadOnly = True
         Me.dtgprestamos.RowHeadersVisible = False
+        Me.dtgprestamos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgprestamos.Size = New System.Drawing.Size(550, 285)
         Me.dtgprestamos.TabIndex = 8
         '
-        'IDPRESTAMODataGridViewTextBoxColumn
+        'btndevolucion
         '
-        Me.IDPRESTAMODataGridViewTextBoxColumn.DataPropertyName = "ID_PRESTAMO"
-        Me.IDPRESTAMODataGridViewTextBoxColumn.HeaderText = "ID_PRESTAMO"
-        Me.IDPRESTAMODataGridViewTextBoxColumn.Name = "IDPRESTAMODataGridViewTextBoxColumn"
-        Me.IDPRESTAMODataGridViewTextBoxColumn.ReadOnly = True
+        Me.btndevolucion.Enabled = False
+        Me.btndevolucion.Location = New System.Drawing.Point(579, 283)
+        Me.btndevolucion.Name = "btndevolucion"
+        Me.btndevolucion.Size = New System.Drawing.Size(108, 42)
+        Me.btndevolucion.TabIndex = 9
+        Me.btndevolucion.Text = "Realizar Devolucion"
+        Me.btndevolucion.UseVisualStyleBackColor = True
         '
-        'TituloDataGridViewTextBoxColumn
+        'btnmod
         '
-        Me.TituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo"
-        Me.TituloDataGridViewTextBoxColumn.HeaderText = "Titulo"
-        Me.TituloDataGridViewTextBoxColumn.Name = "TituloDataGridViewTextBoxColumn"
-        Me.TituloDataGridViewTextBoxColumn.ReadOnly = True
+        Me.btnmod.Enabled = False
+        Me.btnmod.Location = New System.Drawing.Point(579, 331)
+        Me.btnmod.Name = "btnmod"
+        Me.btnmod.Size = New System.Drawing.Size(108, 42)
+        Me.btnmod.TabIndex = 10
+        Me.btnmod.Text = "Modificar fecha de entrega"
+        Me.btnmod.UseVisualStyleBackColor = True
         '
-        'FechaPrestamoDataGridViewTextBoxColumn
+        'Label6
         '
-        Me.FechaPrestamoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Prestamo"
-        Me.FechaPrestamoDataGridViewTextBoxColumn.HeaderText = "Fecha de Prestamo"
-        Me.FechaPrestamoDataGridViewTextBoxColumn.Name = "FechaPrestamoDataGridViewTextBoxColumn"
-        Me.FechaPrestamoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial Black", 27.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label6.Location = New System.Drawing.Point(80, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(284, 51)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Devoluciones"
         '
-        'FechaDevolDataGridViewTextBoxColumn
+        'IDDETPRESTAMO
         '
-        Me.FechaDevolDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Devol"
-        Me.FechaDevolDataGridViewTextBoxColumn.HeaderText = "Fecha de Devolucion"
-        Me.FechaDevolDataGridViewTextBoxColumn.Name = "FechaDevolDataGridViewTextBoxColumn"
-        Me.FechaDevolDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDETPRESTAMO.DataPropertyName = "ID_DET_PRESTAMO"
+        Me.IDDETPRESTAMO.HeaderText = "ID_DET_PRESTAMO"
+        Me.IDDETPRESTAMO.Name = "IDDETPRESTAMO"
+        Me.IDDETPRESTAMO.ReadOnly = True
+        Me.IDDETPRESTAMO.Visible = False
+        '
+        'ISBN
+        '
+        Me.ISBN.DataPropertyName = "ISBN"
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.Name = "ISBN"
+        Me.ISBN.ReadOnly = True
+        Me.ISBN.Visible = False
+        '
+        'Titulo
+        '
+        Me.Titulo.DataPropertyName = "Titulo"
+        Me.Titulo.HeaderText = "Titulo"
+        Me.Titulo.Name = "Titulo"
+        Me.Titulo.ReadOnly = True
+        '
+        'EDICION
+        '
+        Me.EDICION.DataPropertyName = "EDICION"
+        Me.EDICION.HeaderText = "Edicion"
+        Me.EDICION.Name = "EDICION"
+        Me.EDICION.ReadOnly = True
+        '
+        'FechaPrestamo
+        '
+        Me.FechaPrestamo.DataPropertyName = "Fecha_Prestamo"
+        Me.FechaPrestamo.HeaderText = "Fecha de prestamo"
+        Me.FechaPrestamo.Name = "FechaPrestamo"
+        Me.FechaPrestamo.ReadOnly = True
+        '
+        'FechaDevol
+        '
+        Me.FechaDevol.DataPropertyName = "Fecha_Devol"
+        Me.FechaDevol.HeaderText = "Fecha de devolucion"
+        Me.FechaDevol.Name = "FechaDevol"
+        Me.FechaDevol.ReadOnly = True
         '
         'ExisteDataGridViewCheckBoxColumn
         '
@@ -265,37 +310,9 @@ Partial Class frmDevoluciones
         Me.BDDBIBLIOTECADataSet.DataSetName = "BDDBIBLIOTECADataSet"
         Me.BDDBIBLIOTECADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'btndevolucion
-        '
-        Me.btndevolucion.Location = New System.Drawing.Point(579, 283)
-        Me.btndevolucion.Name = "btndevolucion"
-        Me.btndevolucion.Size = New System.Drawing.Size(108, 42)
-        Me.btndevolucion.TabIndex = 9
-        Me.btndevolucion.Text = "Realizar Devolucion"
-        Me.btndevolucion.UseVisualStyleBackColor = True
-        '
-        'btnmod
-        '
-        Me.btnmod.Location = New System.Drawing.Point(579, 331)
-        Me.btnmod.Name = "btnmod"
-        Me.btnmod.Size = New System.Drawing.Size(108, 42)
-        Me.btnmod.TabIndex = 10
-        Me.btnmod.Text = "Modificar fecha de entrega"
-        Me.btnmod.UseVisualStyleBackColor = True
-        '
         'ViewDevTableAdapter
         '
         Me.ViewDevTableAdapter.ClearBeforeFill = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Black", 27.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Label6.Location = New System.Drawing.Point(80, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(284, 51)
-        Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Devoluciones"
         '
         'frmDevoluciones
         '
@@ -341,13 +358,15 @@ Partial Class frmDevoluciones
     Friend WithEvents dtgprestamos As System.Windows.Forms.DataGridView
     Friend WithEvents btndevolucion As System.Windows.Forms.Button
     Friend WithEvents btnmod As System.Windows.Forms.Button
+    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents BDDBIBLIOTECADataSet As BliblioTec.BDDBIBLIOTECADataSet
     Friend WithEvents ViewDevBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ViewDevTableAdapter As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.viewDevTableAdapter
-    Friend WithEvents IDPRESTAMODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TituloDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FechaPrestamoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FechaDevolDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IDDETPRESTAMO As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Titulo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EDICION As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FechaPrestamo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FechaDevol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ExisteDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

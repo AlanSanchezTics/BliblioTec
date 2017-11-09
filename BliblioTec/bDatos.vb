@@ -5,6 +5,7 @@
     Public dts As New DataSet
     Public idbusqueda As Long
     Public usuNombre As String
+    Public fechaf As Date
 
     Public Sub inicio()
         conexion = New SqlClient.SqlConnection("server=ALANSANCHEZ\SQLEXPRESS; database=BDDBIBLIOTECA; uid=SA; pwd=12345;")
@@ -21,6 +22,23 @@
             MsgBox("Se ha producido el SIGUIENTE ERROR: " & ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical)
         End Try
         comando.Connection.Close()
+        Return ret
+    End Function
+    Function BLector(ByVal tabla As String) As Boolean
+        dts.Clear()
+        Dim ret As Boolean
+        Dim adp As New SqlClient.SqlDataAdapter(strSQL, conexion)
+        Try
+            adp.Fill(dts, tabla)
+            If dts.Tables(tabla).Rows.Count > 0 Then
+                ret = True
+            Else
+                ret = False
+            End If
+        Catch ex As Exception
+            MsgBox("Error al realizar la operacion, servidor no encontrado" & vbCr & ex.Message, MsgBoxStyle.Critical)
+        End Try
+        conexion.Close()
         Return ret
     End Function
 End Module

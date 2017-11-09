@@ -29,3 +29,4 @@ C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTe
 C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroAmonestacion.resources
 C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroLectores.resources
 C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.FormRegistroLibros.resources
+C:\Users\Alan Sanchez\documents\visual studio 2010\Projects\BliblioTec\BliblioTec\obj\x86\Debug\BliblioTec.selecfechadev.resources

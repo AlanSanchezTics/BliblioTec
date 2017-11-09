@@ -45,6 +45,8 @@ Partial Public Class BDDBIBLIOTECADataSet
     
     Private tableviewDev As viewDevDataTable
     
+    Private tableBuscarLibro As BuscarLibroDataTable
+    
     Private relationFK_TBL_AMONESTACIONES_TBL_LECTORES As Global.System.Data.DataRelation
     
     Private relationFK_TBL_AMONESTACIONES_TBL_USUARIOS As Global.System.Data.DataRelation
@@ -63,7 +65,9 @@ Partial Public Class BDDBIBLIOTECADataSet
     
     Private relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS As Global.System.Data.DataRelation
     
-    Private relationFK_TBL_DET_PRESTAMO_TBL_PRESTAMO1 As Global.System.Data.DataRelation
+    Private relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1 As Global.System.Data.DataRelation
+    
+    Private relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -123,6 +127,9 @@ Partial Public Class BDDBIBLIOTECADataSet
             End If
             If (Not (ds.Tables("viewDev")) Is Nothing) Then
                 MyBase.Tables.Add(New viewDevDataTable(ds.Tables("viewDev")))
+            End If
+            If (Not (ds.Tables("BuscarLibro")) Is Nothing) Then
+                MyBase.Tables.Add(New BuscarLibroDataTable(ds.Tables("BuscarLibro")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -243,6 +250,16 @@ Partial Public Class BDDBIBLIOTECADataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property BuscarLibro() As BuscarLibroDataTable
+        Get
+            Return Me.tableBuscarLibro
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -338,6 +355,9 @@ Partial Public Class BDDBIBLIOTECADataSet
             If (Not (ds.Tables("viewDev")) Is Nothing) Then
                 MyBase.Tables.Add(New viewDevDataTable(ds.Tables("viewDev")))
             End If
+            If (Not (ds.Tables("BuscarLibro")) Is Nothing) Then
+                MyBase.Tables.Add(New BuscarLibroDataTable(ds.Tables("BuscarLibro")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -430,6 +450,12 @@ Partial Public Class BDDBIBLIOTECADataSet
                 Me.tableviewDev.InitVars
             End If
         End If
+        Me.tableBuscarLibro = CType(MyBase.Tables("BuscarLibro"),BuscarLibroDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableBuscarLibro) Is Nothing) Then
+                Me.tableBuscarLibro.InitVars
+            End If
+        End If
         Me.relationFK_TBL_AMONESTACIONES_TBL_LECTORES = Me.Relations("FK_TBL_AMONESTACIONES_TBL_LECTORES")
         Me.relationFK_TBL_AMONESTACIONES_TBL_USUARIOS = Me.Relations("FK_TBL_AMONESTACIONES_TBL_USUARIOS")
         Me.relationFK_TBL_DET_LIBROS_TBL_EDITORIAL = Me.Relations("FK_TBL_DET_LIBROS_TBL_EDITORIAL")
@@ -439,7 +465,8 @@ Partial Public Class BDDBIBLIOTECADataSet
         Me.relationFK_TBL_PRESTAMO_TBL_LECTORES = Me.Relations("FK_TBL_PRESTAMO_TBL_LECTORES")
         Me.relationFK_TBL_PRESTAMO_TBL_USUARIOS = Me.Relations("FK_TBL_PRESTAMO_TBL_USUARIOS")
         Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS = Me.Relations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS")
-        Me.relationFK_TBL_DET_PRESTAMO_TBL_PRESTAMO1 = Me.Relations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1")
+        Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1 = Me.Relations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1")
+        Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2 = Me.Relations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -470,6 +497,8 @@ Partial Public Class BDDBIBLIOTECADataSet
         MyBase.Tables.Add(Me.tableTBL_USUARIOS)
         Me.tableviewDev = New viewDevDataTable()
         MyBase.Tables.Add(Me.tableviewDev)
+        Me.tableBuscarLibro = New BuscarLibroDataTable()
+        MyBase.Tables.Add(Me.tableBuscarLibro)
         Me.relationFK_TBL_AMONESTACIONES_TBL_LECTORES = New Global.System.Data.DataRelation("FK_TBL_AMONESTACIONES_TBL_LECTORES", New Global.System.Data.DataColumn() {Me.tableTBL_LECTORES.ID_NUMLECTORColumn}, New Global.System.Data.DataColumn() {Me.tableTBL_AMONESTACIONES.ID_NumLectorColumn}, false)
         Me.Relations.Add(Me.relationFK_TBL_AMONESTACIONES_TBL_LECTORES)
         Me.relationFK_TBL_AMONESTACIONES_TBL_USUARIOS = New Global.System.Data.DataRelation("FK_TBL_AMONESTACIONES_TBL_USUARIOS", New Global.System.Data.DataColumn() {Me.tableTBL_USUARIOS.ID_USUARIOColumn}, New Global.System.Data.DataColumn() {Me.tableTBL_AMONESTACIONES.ID_UsuarioColumn}, false)
@@ -488,8 +517,10 @@ Partial Public Class BDDBIBLIOTECADataSet
         Me.Relations.Add(Me.relationFK_TBL_PRESTAMO_TBL_USUARIOS)
         Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS = New Global.System.Data.DataRelation("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS", New Global.System.Data.DataColumn() {Me.tableTBL_DET_LIBROS.ISBNColumn}, New Global.System.Data.DataColumn() {Me.tableTBL_DET_PRESTAMOS.ISBNColumn}, false)
         Me.Relations.Add(Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS)
-        Me.relationFK_TBL_DET_PRESTAMO_TBL_PRESTAMO1 = New Global.System.Data.DataRelation("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1", New Global.System.Data.DataColumn() {Me.tableTBL_PRESTAMOS.ID_PRESTAMOColumn}, New Global.System.Data.DataColumn() {Me.tableviewDev.ID_PRESTAMOColumn}, false)
-        Me.Relations.Add(Me.relationFK_TBL_DET_PRESTAMO_TBL_PRESTAMO1)
+        Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1 = New Global.System.Data.DataRelation("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1", New Global.System.Data.DataColumn() {Me.tableviewDev.ISBNColumn}, New Global.System.Data.DataColumn() {Me.tableTBL_DET_PRESTAMOS.ISBNColumn}, false)
+        Me.Relations.Add(Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1)
+        Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2 = New Global.System.Data.DataRelation("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2", New Global.System.Data.DataColumn() {Me.tableBuscarLibro.ISBNColumn}, New Global.System.Data.DataColumn() {Me.tableTBL_DET_PRESTAMOS.ISBNColumn}, false)
+        Me.Relations.Add(Me.relationFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -549,6 +580,12 @@ Partial Public Class BDDBIBLIOTECADataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeviewDev() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeBuscarLibro() As Boolean
         Return false
     End Function
     
@@ -639,6 +676,9 @@ Partial Public Class BDDBIBLIOTECADataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub viewDevRowChangeEventHandler(ByVal sender As Object, ByVal e As viewDevRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub BuscarLibroRowChangeEventHandler(ByVal sender As Object, ByVal e As BuscarLibroRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1672,6 +1712,8 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         Private columnISBN As Global.System.Data.DataColumn
         
+        Private columnEstatus As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1756,6 +1798,14 @@ Partial Public Class BDDBIBLIOTECADataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EstatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1792,9 +1842,9 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTBL_DET_PRESTAMOSRow(ByVal Fecha_Prestamo As Date, ByVal Fecha_Devol As Date, ByVal parentTBL_PRESTAMOSRowByFK_TBL_DET_PRESTAMO_TBL_PRESTAMO As TBL_PRESTAMOSRow, ByVal Existe As Boolean, ByVal parentTBL_DET_LIBROSRowByFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS As TBL_DET_LIBROSRow) As TBL_DET_PRESTAMOSRow
+        Public Overloads Function AddTBL_DET_PRESTAMOSRow(ByVal Fecha_Prestamo As Date, ByVal Fecha_Devol As Date, ByVal parentTBL_PRESTAMOSRowByFK_TBL_DET_PRESTAMO_TBL_PRESTAMO As TBL_PRESTAMOSRow, ByVal Existe As Boolean, ByVal parentTBL_DET_LIBROSRowByFK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS As TBL_DET_LIBROSRow, ByVal Estatus As Boolean) As TBL_DET_PRESTAMOSRow
             Dim rowTBL_DET_PRESTAMOSRow As TBL_DET_PRESTAMOSRow = CType(Me.NewRow,TBL_DET_PRESTAMOSRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha_Prestamo, Fecha_Devol, Nothing, Existe, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha_Prestamo, Fecha_Devol, Nothing, Existe, Nothing, Estatus}
             If (Not (parentTBL_PRESTAMOSRowByFK_TBL_DET_PRESTAMO_TBL_PRESTAMO) Is Nothing) Then
                 columnValuesArray(3) = parentTBL_PRESTAMOSRowByFK_TBL_DET_PRESTAMO_TBL_PRESTAMO(0)
             End If
@@ -1835,6 +1885,7 @@ Partial Public Class BDDBIBLIOTECADataSet
             Me.columnID_Prestamo = MyBase.Columns("ID_Prestamo")
             Me.columnExiste = MyBase.Columns("Existe")
             Me.columnISBN = MyBase.Columns("ISBN")
+            Me.columnEstatus = MyBase.Columns("Estatus")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1852,6 +1903,8 @@ Partial Public Class BDDBIBLIOTECADataSet
             MyBase.Columns.Add(Me.columnExiste)
             Me.columnISBN = New Global.System.Data.DataColumn("ISBN", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnISBN)
+            Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstatus)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_DET_PRESTAMO}, true))
             Me.columnID_DET_PRESTAMO.AutoIncrement = true
             Me.columnID_DET_PRESTAMO.AutoIncrementSeed = -1
@@ -3761,8 +3814,6 @@ Partial Public Class BDDBIBLIOTECADataSet
     Partial Public Class viewDevDataTable
         Inherits Global.System.Data.TypedTableBase(Of viewDevRow)
         
-        Private columnID_PRESTAMO As Global.System.Data.DataColumn
-        
         Private columnFecha_Prestamo As Global.System.Data.DataColumn
         
         Private columnFecha_Devol As Global.System.Data.DataColumn
@@ -3770,6 +3821,14 @@ Partial Public Class BDDBIBLIOTECADataSet
         Private columnTitulo As Global.System.Data.DataColumn
         
         Private columnExiste As Global.System.Data.DataColumn
+        
+        Private columnEDICION As Global.System.Data.DataColumn
+        
+        Private columnISBN As Global.System.Data.DataColumn
+        
+        Private columnID_DET_PRESTAMO As Global.System.Data.DataColumn
+        
+        Private columnEstatus As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3808,14 +3867,6 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ID_PRESTAMOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID_PRESTAMO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Fecha_PrestamoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnFecha_Prestamo
@@ -3843,6 +3894,38 @@ Partial Public Class BDDBIBLIOTECADataSet
         Public ReadOnly Property ExisteColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnExiste
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EDICIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEDICION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ISBNColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnISBN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ID_DET_PRESTAMOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID_DET_PRESTAMO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EstatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstatus
             End Get
         End Property
         
@@ -3883,9 +3966,9 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddviewDevRow(ByVal Fecha_Prestamo As Date, ByVal Fecha_Devol As Date, ByVal Titulo As String, ByVal Existe As Boolean) As viewDevRow
+        Public Overloads Function AddviewDevRow(ByVal Fecha_Prestamo As Date, ByVal Fecha_Devol As Date, ByVal Titulo As String, ByVal Existe As Boolean, ByVal EDICION As String, ByVal Estatus As Boolean) As viewDevRow
             Dim rowviewDevRow As viewDevRow = CType(Me.NewRow,viewDevRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha_Prestamo, Fecha_Devol, Titulo, Existe}
+            Dim columnValuesArray() As Object = New Object() {Fecha_Prestamo, Fecha_Devol, Titulo, Existe, EDICION, Nothing, Nothing, Estatus}
             rowviewDevRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewDevRow)
             Return rowviewDevRow
@@ -3893,8 +3976,8 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByID_PRESTAMO(ByVal ID_PRESTAMO As Long) As viewDevRow
-            Return CType(Me.Rows.Find(New Object() {ID_PRESTAMO}),viewDevRow)
+        Public Function FindByISBN(ByVal ISBN As Long) As viewDevRow
+            Return CType(Me.Rows.Find(New Object() {ISBN}),viewDevRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3914,18 +3997,19 @@ Partial Public Class BDDBIBLIOTECADataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID_PRESTAMO = MyBase.Columns("ID_PRESTAMO")
             Me.columnFecha_Prestamo = MyBase.Columns("Fecha_Prestamo")
             Me.columnFecha_Devol = MyBase.Columns("Fecha_Devol")
             Me.columnTitulo = MyBase.Columns("Titulo")
             Me.columnExiste = MyBase.Columns("Existe")
+            Me.columnEDICION = MyBase.Columns("EDICION")
+            Me.columnISBN = MyBase.Columns("ISBN")
+            Me.columnID_DET_PRESTAMO = MyBase.Columns("ID_DET_PRESTAMO")
+            Me.columnEstatus = MyBase.Columns("Estatus")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID_PRESTAMO = New Global.System.Data.DataColumn("ID_PRESTAMO", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_PRESTAMO)
             Me.columnFecha_Prestamo = New Global.System.Data.DataColumn("Fecha_Prestamo", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFecha_Prestamo)
             Me.columnFecha_Devol = New Global.System.Data.DataColumn("Fecha_Devol", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -3934,15 +4018,29 @@ Partial Public Class BDDBIBLIOTECADataSet
             MyBase.Columns.Add(Me.columnTitulo)
             Me.columnExiste = New Global.System.Data.DataColumn("Existe", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnExiste)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_PRESTAMO}, true))
-            Me.columnID_PRESTAMO.AutoIncrement = true
-            Me.columnID_PRESTAMO.AutoIncrementSeed = -1
-            Me.columnID_PRESTAMO.AutoIncrementStep = -1
-            Me.columnID_PRESTAMO.AllowDBNull = false
-            Me.columnID_PRESTAMO.ReadOnly = true
-            Me.columnID_PRESTAMO.Unique = true
+            Me.columnEDICION = New Global.System.Data.DataColumn("EDICION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEDICION)
+            Me.columnISBN = New Global.System.Data.DataColumn("ISBN", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnISBN)
+            Me.columnID_DET_PRESTAMO = New Global.System.Data.DataColumn("ID_DET_PRESTAMO", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_DET_PRESTAMO)
+            Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstatus)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnISBN}, true))
             Me.columnTitulo.MaxLength = 50
             Me.columnExiste.AllowDBNull = false
+            Me.columnEDICION.MaxLength = 2
+            Me.columnISBN.AutoIncrement = true
+            Me.columnISBN.AutoIncrementSeed = -1
+            Me.columnISBN.AutoIncrementStep = -1
+            Me.columnISBN.AllowDBNull = false
+            Me.columnISBN.ReadOnly = true
+            Me.columnISBN.Unique = true
+            Me.columnID_DET_PRESTAMO.AutoIncrement = true
+            Me.columnID_DET_PRESTAMO.AutoIncrementSeed = -1
+            Me.columnID_DET_PRESTAMO.AutoIncrementStep = -1
+            Me.columnID_DET_PRESTAMO.AllowDBNull = false
+            Me.columnID_DET_PRESTAMO.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4029,6 +4127,368 @@ Partial Public Class BDDBIBLIOTECADataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "viewDevDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class BuscarLibroDataTable
+        Inherits Global.System.Data.TypedTableBase(Of BuscarLibroRow)
+        
+        Private columnPORTADA As Global.System.Data.DataColumn
+        
+        Private columnISBN As Global.System.Data.DataColumn
+        
+        Private columnTitulo As Global.System.Data.DataColumn
+        
+        Private columnAutor As Global.System.Data.DataColumn
+        
+        Private columnEDICION As Global.System.Data.DataColumn
+        
+        Private columnNombre As Global.System.Data.DataColumn
+        
+        Private columnAÑO As Global.System.Data.DataColumn
+        
+        Private columnESTATUS As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "BuscarLibro"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PORTADAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPORTADA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ISBNColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnISBN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TituloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTitulo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property AutorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAutor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EDICIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEDICION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property AÑOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAÑO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ESTATUSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnESTATUS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As BuscarLibroRow
+            Get
+                Return CType(Me.Rows(index),BuscarLibroRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event BuscarLibroRowChanging As BuscarLibroRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event BuscarLibroRowChanged As BuscarLibroRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event BuscarLibroRowDeleting As BuscarLibroRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event BuscarLibroRowDeleted As BuscarLibroRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddBuscarLibroRow(ByVal row As BuscarLibroRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddBuscarLibroRow(ByVal PORTADA() As Byte, ByVal Titulo As String, ByVal Autor As String, ByVal EDICION As String, ByVal Nombre As String, ByVal AÑO As String, ByVal ESTATUS As String) As BuscarLibroRow
+            Dim rowBuscarLibroRow As BuscarLibroRow = CType(Me.NewRow,BuscarLibroRow)
+            Dim columnValuesArray() As Object = New Object() {PORTADA, Nothing, Titulo, Autor, EDICION, Nombre, AÑO, ESTATUS}
+            rowBuscarLibroRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowBuscarLibroRow)
+            Return rowBuscarLibroRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByISBN(ByVal ISBN As Long) As BuscarLibroRow
+            Return CType(Me.Rows.Find(New Object() {ISBN}),BuscarLibroRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As BuscarLibroDataTable = CType(MyBase.Clone,BuscarLibroDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New BuscarLibroDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnPORTADA = MyBase.Columns("PORTADA")
+            Me.columnISBN = MyBase.Columns("ISBN")
+            Me.columnTitulo = MyBase.Columns("Titulo")
+            Me.columnAutor = MyBase.Columns("Autor")
+            Me.columnEDICION = MyBase.Columns("EDICION")
+            Me.columnNombre = MyBase.Columns("Nombre")
+            Me.columnAÑO = MyBase.Columns("AÑO")
+            Me.columnESTATUS = MyBase.Columns("ESTATUS")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnPORTADA = New Global.System.Data.DataColumn("PORTADA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPORTADA)
+            Me.columnISBN = New Global.System.Data.DataColumn("ISBN", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnISBN)
+            Me.columnTitulo = New Global.System.Data.DataColumn("Titulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTitulo)
+            Me.columnAutor = New Global.System.Data.DataColumn("Autor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAutor)
+            Me.columnEDICION = New Global.System.Data.DataColumn("EDICION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEDICION)
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
+            Me.columnAÑO = New Global.System.Data.DataColumn("AÑO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAÑO)
+            Me.columnESTATUS = New Global.System.Data.DataColumn("ESTATUS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnESTATUS)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnISBN}, true))
+            Me.columnISBN.AutoIncrement = true
+            Me.columnISBN.AutoIncrementSeed = -1
+            Me.columnISBN.AutoIncrementStep = -1
+            Me.columnISBN.AllowDBNull = false
+            Me.columnISBN.ReadOnly = true
+            Me.columnISBN.Unique = true
+            Me.columnTitulo.MaxLength = 50
+            Me.columnAutor.MaxLength = 40
+            Me.columnEDICION.MaxLength = 2
+            Me.columnNombre.MaxLength = 45
+            Me.columnAÑO.MaxLength = 5
+            Me.columnESTATUS.MaxLength = 20
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewBuscarLibroRow() As BuscarLibroRow
+            Return CType(Me.NewRow,BuscarLibroRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New BuscarLibroRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(BuscarLibroRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.BuscarLibroRowChangedEvent) Is Nothing) Then
+                RaiseEvent BuscarLibroRowChanged(Me, New BuscarLibroRowChangeEvent(CType(e.Row,BuscarLibroRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.BuscarLibroRowChangingEvent) Is Nothing) Then
+                RaiseEvent BuscarLibroRowChanging(Me, New BuscarLibroRowChangeEvent(CType(e.Row,BuscarLibroRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.BuscarLibroRowDeletedEvent) Is Nothing) Then
+                RaiseEvent BuscarLibroRowDeleted(Me, New BuscarLibroRowChangeEvent(CType(e.Row,BuscarLibroRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.BuscarLibroRowDeletingEvent) Is Nothing) Then
+                RaiseEvent BuscarLibroRowDeleting(Me, New BuscarLibroRowChangeEvent(CType(e.Row,BuscarLibroRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveBuscarLibroRow(ByVal row As BuscarLibroRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As BDDBIBLIOTECADataSet = New BDDBIBLIOTECADataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "BuscarLibroDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -4653,6 +5113,21 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Estatus() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableTBL_DET_PRESTAMOS.EstatusColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Estatus' in table 'TBL_DET_PRESTAMOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTBL_DET_PRESTAMOS.EstatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property TBL_PRESTAMOSRow() As TBL_PRESTAMOSRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO")),TBL_PRESTAMOSRow)
@@ -4670,6 +5145,28 @@ Partial Public Class BDDBIBLIOTECADataSet
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property viewDevRow() As viewDevRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1")),viewDevRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property BuscarLibroRow() As BuscarLibroRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2")),BuscarLibroRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2"))
             End Set
         End Property
         
@@ -4707,6 +5204,18 @@ Partial Public Class BDDBIBLIOTECADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetExisteNull()
             Me(Me.tableTBL_DET_PRESTAMOS.ExisteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEstatusNull() As Boolean
+            Return Me.IsNull(Me.tableTBL_DET_PRESTAMOS.EstatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEstatusNull()
+            Me(Me.tableTBL_DET_PRESTAMOS.EstatusColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5402,16 +5911,6 @@ Partial Public Class BDDBIBLIOTECADataSet
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO")),TBL_DET_PRESTAMOSRow())
             End If
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function GetviewDevRows() As viewDevRow()
-            If (Me.Table.ChildRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1") Is Nothing) Then
-                Return New viewDevRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1")),viewDevRow())
-            End If
-        End Function
     End Class
     
     '''<summary>
@@ -5732,17 +6231,6 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ID_PRESTAMO() As Long
-            Get
-                Return CType(Me(Me.tableviewDev.ID_PRESTAMOColumn),Long)
-            End Get
-            Set
-                Me(Me.tableviewDev.ID_PRESTAMOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Fecha_Prestamo() As Date
             Get
                 Try 
@@ -5799,12 +6287,53 @@ Partial Public Class BDDBIBLIOTECADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property TBL_PRESTAMOSRow() As TBL_PRESTAMOSRow
+        Public Property EDICION() As String
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1")),TBL_PRESTAMOSRow)
+                Try 
+                    Return CType(Me(Me.tableviewDev.EDICIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EDICION' in table 'viewDev' is DBNull.", e)
+                End Try
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_TBL_DET_PRESTAMO_TBL_PRESTAMO1"))
+                Me(Me.tableviewDev.EDICIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ISBN() As Long
+            Get
+                Return CType(Me(Me.tableviewDev.ISBNColumn),Long)
+            End Get
+            Set
+                Me(Me.tableviewDev.ISBNColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ID_DET_PRESTAMO() As Long
+            Get
+                Return CType(Me(Me.tableviewDev.ID_DET_PRESTAMOColumn),Long)
+            End Get
+            Set
+                Me(Me.tableviewDev.ID_DET_PRESTAMOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Estatus() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableviewDev.EstatusColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Estatus' in table 'viewDev' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableviewDev.EstatusColumn) = value
             End Set
         End Property
         
@@ -5843,6 +6372,266 @@ Partial Public Class BDDBIBLIOTECADataSet
         Public Sub SetTituloNull()
             Me(Me.tableviewDev.TituloColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEDICIONNull() As Boolean
+            Return Me.IsNull(Me.tableviewDev.EDICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEDICIONNull()
+            Me(Me.tableviewDev.EDICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEstatusNull() As Boolean
+            Return Me.IsNull(Me.tableviewDev.EstatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEstatusNull()
+            Me(Me.tableviewDev.EstatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetTBL_DET_PRESTAMOSRows() As TBL_DET_PRESTAMOSRow()
+            If (Me.Table.ChildRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1") Is Nothing) Then
+                Return New TBL_DET_PRESTAMOSRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS1")),TBL_DET_PRESTAMOSRow())
+            End If
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class BuscarLibroRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableBuscarLibro As BuscarLibroDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableBuscarLibro = CType(Me.Table,BuscarLibroDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PORTADA() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.PORTADAColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PORTADA' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.PORTADAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ISBN() As Long
+            Get
+                Return CType(Me(Me.tableBuscarLibro.ISBNColumn),Long)
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.ISBNColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Titulo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.TituloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Titulo' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.TituloColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Autor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.AutorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Autor' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.AutorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property EDICION() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.EDICIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EDICION' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.EDICIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.NombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nombre' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.NombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property AÑO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.AÑOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AÑO' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.AÑOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ESTATUS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableBuscarLibro.ESTATUSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ESTATUS' in table 'BuscarLibro' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableBuscarLibro.ESTATUSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPORTADANull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.PORTADAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPORTADANull()
+            Me(Me.tableBuscarLibro.PORTADAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTituloNull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.TituloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTituloNull()
+            Me(Me.tableBuscarLibro.TituloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsAutorNull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.AutorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetAutorNull()
+            Me(Me.tableBuscarLibro.AutorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEDICIONNull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.EDICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEDICIONNull()
+            Me(Me.tableBuscarLibro.EDICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNombreNull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.NombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNombreNull()
+            Me(Me.tableBuscarLibro.NombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsAÑONull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.AÑOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetAÑONull()
+            Me(Me.tableBuscarLibro.AÑOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsESTATUSNull() As Boolean
+            Return Me.IsNull(Me.tableBuscarLibro.ESTATUSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetESTATUSNull()
+            Me(Me.tableBuscarLibro.ESTATUSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetTBL_DET_PRESTAMOSRows() As TBL_DET_PRESTAMOSRow()
+            If (Me.Table.ChildRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2") Is Nothing) Then
+                Return New TBL_DET_PRESTAMOSRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_TBL_DET_PRESTAMOS_TBL_DET_LIBROS2")),TBL_DET_PRESTAMOSRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -6191,6 +6980,42 @@ Partial Public Class BDDBIBLIOTECADataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As viewDevRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class BuscarLibroRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As BuscarLibroRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As BuscarLibroRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As BuscarLibroRow
             Get
                 Return Me.eventRow
             End Get
@@ -7589,6 +8414,7 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             tableMapping.ColumnMappings.Add("ID_Prestamo", "ID_Prestamo")
             tableMapping.ColumnMappings.Add("Existe", "Existe")
             tableMapping.ColumnMappings.Add("ISBN", "ISBN")
+            tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -7597,7 +8423,8 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                 "Prestamo] = @Original_Fecha_Prestamo)) AND ((@IsNull_Fecha_Devol = 1 AND [Fecha_"& _ 
                 "Devol] IS NULL) OR ([Fecha_Devol] = @Original_Fecha_Devol)) AND ([ID_Prestamo] ="& _ 
                 " @Original_ID_Prestamo) AND ((@IsNull_Existe = 1 AND [Existe] IS NULL) OR ([Exis"& _ 
-                "te] = @Original_Existe)) AND ([ISBN] = @Original_ISBN))"
+                "te] = @Original_Existe)) AND ((@IsNull_Estatus = 1 AND [Estatus] IS NULL) OR ([E"& _ 
+                "status] = @Original_Estatus)) AND ([ISBN] = @Original_ISBN))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_DET_PRESTAMO", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_DET_PRESTAMO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Prestamo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Prestamo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7607,36 +8434,42 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Prestamo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Prestamo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Existe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Existe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Estatus", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Estatus", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ISBN", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISBN", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [TBL_DET_PRESTAMOS] ([Fecha_Prestamo], [Fecha_Devol], [ID_Prestamo], "& _ 
-                "[Existe], [ISBN]) VALUES (@Fecha_Prestamo, @Fecha_Devol, @ID_Prestamo, @Existe, "& _ 
-                "@ISBN);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DET_PRESTAMO, Fecha_Prestamo, Fecha_Devol, ID_Prestamo, Exist"& _ 
-                "e, ISBN FROM TBL_DET_PRESTAMOS WHERE (ID_DET_PRESTAMO = SCOPE_IDENTITY())"
+                "[Existe], [Estatus], [ISBN]) VALUES (@Fecha_Prestamo, @Fecha_Devol, @ID_Prestamo"& _ 
+                ", @Existe, @Estatus, @ISBN);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DET_PRESTAMO, Fecha_Prestamo, Fecha_Devo"& _ 
+                "l, ID_Prestamo, Existe, Estatus, ISBN FROM TBL_DET_PRESTAMOS WHERE (ID_DET_PREST"& _ 
+                "AMO = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha_Prestamo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha_Devol", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Devol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Prestamo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Existe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISBN", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISBN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [TBL_DET_PRESTAMOS] SET [Fecha_Prestamo] = @Fecha_Prestamo, [Fecha_Devol] "& _ 
-                "= @Fecha_Devol, [ID_Prestamo] = @ID_Prestamo, [Existe] = @Existe, [ISBN] = @ISBN"& _ 
-                " WHERE (([ID_DET_PRESTAMO] = @Original_ID_DET_PRESTAMO) AND ((@IsNull_Fecha_Pres"& _ 
-                "tamo = 1 AND [Fecha_Prestamo] IS NULL) OR ([Fecha_Prestamo] = @Original_Fecha_Pr"& _ 
-                "estamo)) AND ((@IsNull_Fecha_Devol = 1 AND [Fecha_Devol] IS NULL) OR ([Fecha_Dev"& _ 
-                "ol] = @Original_Fecha_Devol)) AND ([ID_Prestamo] = @Original_ID_Prestamo) AND (("& _ 
-                "@IsNull_Existe = 1 AND [Existe] IS NULL) OR ([Existe] = @Original_Existe)) AND ("& _ 
-                "[ISBN] = @Original_ISBN));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DET_PRESTAMO, Fecha_Prestamo, Fecha_Devol,"& _ 
-                " ID_Prestamo, Existe, ISBN FROM TBL_DET_PRESTAMOS WHERE (ID_DET_PRESTAMO = @ID_D"& _ 
-                "ET_PRESTAMO)"
+                "= @Fecha_Devol, [ID_Prestamo] = @ID_Prestamo, [Existe] = @Existe, [Estatus] = @E"& _ 
+                "status, [ISBN] = @ISBN WHERE (([ID_DET_PRESTAMO] = @Original_ID_DET_PRESTAMO) AN"& _ 
+                "D ((@IsNull_Fecha_Prestamo = 1 AND [Fecha_Prestamo] IS NULL) OR ([Fecha_Prestamo"& _ 
+                "] = @Original_Fecha_Prestamo)) AND ((@IsNull_Fecha_Devol = 1 AND [Fecha_Devol] I"& _ 
+                "S NULL) OR ([Fecha_Devol] = @Original_Fecha_Devol)) AND ([ID_Prestamo] = @Origin"& _ 
+                "al_ID_Prestamo) AND ((@IsNull_Existe = 1 AND [Existe] IS NULL) OR ([Existe] = @O"& _ 
+                "riginal_Existe)) AND ((@IsNull_Estatus = 1 AND [Estatus] IS NULL) OR ([Estatus] "& _ 
+                "= @Original_Estatus)) AND ([ISBN] = @Original_ISBN));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DET_PRESTAMO, F"& _ 
+                "echa_Prestamo, Fecha_Devol, ID_Prestamo, Existe, Estatus, ISBN FROM TBL_DET_PRES"& _ 
+                "TAMOS WHERE (ID_DET_PRESTAMO = @ID_DET_PRESTAMO)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha_Prestamo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha_Devol", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Devol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_Prestamo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Existe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISBN", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISBN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_DET_PRESTAMO", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_DET_PRESTAMO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Fecha_Prestamo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha_Prestamo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7646,6 +8479,8 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID_Prestamo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_Prestamo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Existe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Existe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Existe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Estatus", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Estatus", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ISBN", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISBN", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID_DET_PRESTAMO", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_DET_PRESTAMO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -7663,8 +8498,8 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID_DET_PRESTAMO, Fecha_Prestamo, Fecha_Devol, ID_Prestamo, Existe, ISBN FR"& _ 
-                "OM TBL_DET_PRESTAMOS"
+            Me._commandCollection(0).CommandText = "SELECT ID_DET_PRESTAMO, Fecha_Prestamo, Fecha_Devol, ID_Prestamo, Existe, Estatus"& _ 
+                ", ISBN FROM TBL_DET_PRESTAMOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -7724,7 +8559,7 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_Estatus As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_DET_PRESTAMO,Long)
             If (Original_Fecha_Prestamo.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -7748,7 +8583,14 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_ISBN,Long)
+            If (Original_Estatus.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Estatus.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ISBN,Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7768,7 +8610,7 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal ISBN As Long) As Integer
+        Public Overloads Overridable Function Insert(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal Estatus As Global.System.Nullable(Of Boolean), ByVal ISBN As Long) As Integer
             If (Fecha_Prestamo.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Fecha_Prestamo.Value,Date)
             Else
@@ -7785,7 +8627,12 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(ISBN,Long)
+            If (Estatus.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Estatus.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(ISBN,Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7805,7 +8652,7 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal ISBN As Long, ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long, ByVal ID_DET_PRESTAMO As Long) As Integer
+        Public Overloads Overridable Function Update(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal Estatus As Global.System.Nullable(Of Boolean), ByVal ISBN As Long, ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_Estatus As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long, ByVal ID_DET_PRESTAMO As Long) As Integer
             If (Fecha_Prestamo.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Fecha_Prestamo.Value,Date)
             Else
@@ -7822,32 +8669,44 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ISBN,Long)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID_DET_PRESTAMO,Long)
-            If (Original_Fecha_Prestamo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Fecha_Prestamo.Value,Date)
+            If (Estatus.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Estatus.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ISBN,Long)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID_DET_PRESTAMO,Long)
+            If (Original_Fecha_Prestamo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Fecha_Prestamo.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_Fecha_Devol.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Fecha_Devol.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Fecha_Devol.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID_Prestamo,Long)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ID_Prestamo,Long)
             If (Original_Existe.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Existe.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Existe.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ISBN,Long)
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(ID_DET_PRESTAMO,Long)
+            If (Original_Estatus.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Estatus.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_ISBN,Long)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(ID_DET_PRESTAMO,Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7867,8 +8726,8 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal ISBN As Long, ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long) As Integer
-            Return Me.Update(Fecha_Prestamo, Fecha_Devol, ID_Prestamo, Existe, ISBN, Original_ID_DET_PRESTAMO, Original_Fecha_Prestamo, Original_Fecha_Devol, Original_ID_Prestamo, Original_Existe, Original_ISBN, Original_ID_DET_PRESTAMO)
+        Public Overloads Overridable Function Update(ByVal Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Fecha_Devol As Global.System.Nullable(Of Date), ByVal ID_Prestamo As Long, ByVal Existe As Global.System.Nullable(Of Boolean), ByVal Estatus As Global.System.Nullable(Of Boolean), ByVal ISBN As Long, ByVal Original_ID_DET_PRESTAMO As Long, ByVal Original_Fecha_Prestamo As Global.System.Nullable(Of Date), ByVal Original_Fecha_Devol As Global.System.Nullable(Of Date), ByVal Original_ID_Prestamo As Long, ByVal Original_Existe As Global.System.Nullable(Of Boolean), ByVal Original_Estatus As Global.System.Nullable(Of Boolean), ByVal Original_ISBN As Long) As Integer
+            Return Me.Update(Fecha_Prestamo, Fecha_Devol, ID_Prestamo, Existe, Estatus, ISBN, Original_ID_DET_PRESTAMO, Original_Fecha_Prestamo, Original_Fecha_Devol, Original_ID_Prestamo, Original_Existe, Original_Estatus, Original_ISBN, Original_ID_DET_PRESTAMO)
         End Function
     End Class
     
@@ -10421,11 +11280,14 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewDev"
-            tableMapping.ColumnMappings.Add("ID_PRESTAMO", "ID_PRESTAMO")
             tableMapping.ColumnMappings.Add("Fecha_Prestamo", "Fecha_Prestamo")
             tableMapping.ColumnMappings.Add("Fecha_Devol", "Fecha_Devol")
             tableMapping.ColumnMappings.Add("Titulo", "Titulo")
             tableMapping.ColumnMappings.Add("Existe", "Existe")
+            tableMapping.ColumnMappings.Add("EDICION", "EDICION")
+            tableMapping.ColumnMappings.Add("ISBN", "ISBN")
+            tableMapping.ColumnMappings.Add("ID_DET_PRESTAMO", "ID_DET_PRESTAMO")
+            tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -10442,21 +11304,27 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        TBL_PRESTAMOS.ID_PRESTAMO, TBL_DET_PRESTAMOS.Fecha_Prestamo, TBL_DE"& _ 
-                "T_PRESTAMOS.Fecha_Devol, TBL_LIBROS.Titulo, TBL_LIBROS.Existe"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            T"& _ 
-                "BL_DET_PRESTAMOS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TBL_LIBROS ON TBL_DET_PRES"& _ 
-                "TAMOS.ISBN = TBL_LIBROS.ID_LIBRO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TBL_PRESTA"& _ 
-                "MOS ON TBL_DET_PRESTAMOS.ID_Prestamo = TBL_PRESTAMOS.ID_PRESTAMO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
-                "TBL_LIBROS.Existe = 1)"
+            Me._commandCollection(0).CommandText = "SELECT        TBL_DET_PRESTAMOS.Fecha_Prestamo, TBL_DET_PRESTAMOS.Fecha_Devol, TB"& _ 
+                "L_LIBROS.Titulo, TBL_LIBROS.Existe, TBL_DET_LIBROS.EDICION, TBL_DET_LIBROS.ISBN,"& _ 
+                " TBL_DET_PRESTAMOS.ID_DET_PRESTAMO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TBL_DET_PRESTAMOS"& _ 
+                ".Estatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TBL_DET_PRESTAMOS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " TBL_LIBROS ON TBL_DET_PRESTAMOS.ISBN = TBL_LIBROS.ID_LIBRO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 TBL_PRESTAMOS ON TBL_DET_PRESTAMOS.ID_Prestamo = TBL_PRESTAMOS."& _ 
+                "ID_PRESTAMO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TBL_DET_LIBROS ON TBL_DET_PREST"& _ 
+                "AMOS.ISBN = TBL_DET_LIBROS.ISBN AND TBL_LIBROS.ID_LIBRO = TBL_DET_LIBROS.ID_Libr"& _ 
+                "o"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (TBL_LIBROS.Existe = 1) AND (TBL_PRESTAMOS.ID_NumLector = @Param"& _ 
+                "1) AND (TBL_DET_PRESTAMOS.Estatus = 1)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param1", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ID_NumLector", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BDDBIBLIOTECADataSet.viewDevDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDDBIBLIOTECADataSet.viewDevDataTable, ByVal Param1 As Long) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Param1,Long)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -10468,9 +11336,200 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As BDDBIBLIOTECADataSet.viewDevDataTable
+        Public Overloads Overridable Function GetData(ByVal Param1 As Long) As BDDBIBLIOTECADataSet.viewDevDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Param1,Long)
             Dim dataTable As BDDBIBLIOTECADataSet.viewDevDataTable = New BDDBIBLIOTECADataSet.viewDevDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class BuscarLibroTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "BuscarLibro"
+            tableMapping.ColumnMappings.Add("PORTADA", "PORTADA")
+            tableMapping.ColumnMappings.Add("ISBN", "ISBN")
+            tableMapping.ColumnMappings.Add("Titulo", "Titulo")
+            tableMapping.ColumnMappings.Add("Autor", "Autor")
+            tableMapping.ColumnMappings.Add("EDICION", "EDICION")
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
+            tableMapping.ColumnMappings.Add("AÑO", "AÑO")
+            tableMapping.ColumnMappings.Add("ESTATUS", "ESTATUS")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.BliblioTec.My.MySettings.Default.BDDBIBLIOTECAConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        TBL_LIBROS.PORTADA, TBL_DET_LIBROS.ISBN, TBL_LIBROS.Titulo, TBL_LIB"& _ 
+                "ROS.Autor, TBL_DET_LIBROS.EDICION, TBL_EDITORIALES.Nombre, TBL_DET_LIBROS.AÑO, T"& _ 
+                "BL_DET_LIBROS.ESTATUS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TBL_LIBROS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       TBL_DET_LIBROS ON TBL_LIBROS.ID_LIBRO = TBL_DET_LIBROS.ID_Libro INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TBL_EDITORIALES ON TBL_DET_LIBROS.ID_Editorial = TBL"& _ 
+                "_EDITORIALES.ID_EDITORIAL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (TBL_DET_LIBROS.EXiste = 1) AND (TBL_LIB"& _ 
+                "ROS.Existe = 1) AND (TBL_DET_LIBROS.ESTATUS = 'Disponible') AND (TBL_DET_LIBROS."& _ 
+                "ISBN = @ISBN)"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISBN", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ISBN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As BDDBIBLIOTECADataSet.BuscarLibroDataTable, ByVal ISBN As Long) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ISBN,Long)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal ISBN As Long) As BDDBIBLIOTECADataSet.BuscarLibroDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ISBN,Long)
+            Dim dataTable As BDDBIBLIOTECADataSet.BuscarLibroDataTable = New BDDBIBLIOTECADataSet.BuscarLibroDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -10754,15 +11813,6 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As BDDBIBLIOTECADataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tBL_LECTORESTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._tBL_USUARIOSTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_USUARIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -10781,30 +11831,21 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tBL_LECTORESTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._tBL_LIBROSTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tBL_LIBROSTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tBL_EDITORIALESTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_EDITORIALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tBL_EDITORIALESTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10817,12 +11858,21 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._tBL_DET_PRESTAMOSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tBL_DET_PRESTAMOSTableAdapter.Update(updatedRows))
+                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tBL_EDITORIALESTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_EDITORIALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tBL_EDITORIALESTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10832,6 +11882,15 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tBL_AMONESTACIONESTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tBL_DET_PRESTAMOSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tBL_DET_PRESTAMOSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10845,14 +11904,6 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As BDDBIBLIOTECADataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tBL_LECTORESTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._tBL_USUARIOSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_USUARIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -10869,27 +11920,19 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tBL_LECTORESTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._tBL_LIBROSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._tBL_LIBROSTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tBL_EDITORIALESTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_EDITORIALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tBL_EDITORIALESTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10901,11 +11944,19 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._tBL_DET_PRESTAMOSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tBL_DET_PRESTAMOSTableAdapter.Update(addedRows))
+                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._tBL_EDITORIALESTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_EDITORIALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tBL_EDITORIALESTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10914,6 +11965,14 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._tBL_AMONESTACIONESTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._tBL_DET_PRESTAMOSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tBL_DET_PRESTAMOSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10927,14 +11986,6 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As BDDBIBLIOTECADataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tBL_AMONESTACIONESTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_AMONESTACIONES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tBL_AMONESTACIONESTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._tBL_DET_PRESTAMOSTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -10943,19 +11994,11 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._tBL_PRESTAMOSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._tBL_AMONESTACIONESTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_AMONESTACIONES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tBL_PRESTAMOSTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(deletedRows))
+                    result = (result + Me._tBL_AMONESTACIONESTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -10967,11 +12010,35 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._tBL_DET_LIBROSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_DET_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tBL_DET_LIBROSTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._tBL_PRESTAMOSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_PRESTAMOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tBL_PRESTAMOSTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._tBL_LIBROSTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_LIBROS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tBL_LIBROSTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tBL_LECTORESTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -10988,14 +12055,6 @@ Namespace BDDBIBLIOTECADataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tBL_USUARIOSTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tBL_LECTORESTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TBL_LECTORES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tBL_LECTORESTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If

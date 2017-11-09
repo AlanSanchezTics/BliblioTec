@@ -22,6 +22,7 @@ Partial Class frmPrestamos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtnlector = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -58,15 +59,19 @@ Partial Class frmPrestamos
         Me.Ceditorial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Caño = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnagregar = New System.Windows.Forms.Button()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.dtpfecha = New System.Windows.Forms.DateTimePicker()
         Me.btnrentar = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.BuscarLibroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BddbibliotecaDataSet = New BliblioTec.BDDBIBLIOTECADataSet()
+        Me.BuscarLibroTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter()
+        Me.TableAdapterManager = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BuscarLibroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BddbibliotecaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -110,9 +115,8 @@ Partial Class frmPrestamos
         Me.lblemail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblemail.Location = New System.Drawing.Point(454, 77)
         Me.lblemail.Name = "lblemail"
-        Me.lblemail.Size = New System.Drawing.Size(45, 15)
+        Me.lblemail.Size = New System.Drawing.Size(0, 15)
         Me.lblemail.TabIndex = 8
-        Me.lblemail.Text = "Label9"
         '
         'lbltel
         '
@@ -120,9 +124,8 @@ Partial Class frmPrestamos
         Me.lbltel.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltel.Location = New System.Drawing.Point(454, 37)
         Me.lbltel.Name = "lbltel"
-        Me.lbltel.Size = New System.Drawing.Size(45, 15)
+        Me.lbltel.Size = New System.Drawing.Size(0, 15)
         Me.lbltel.TabIndex = 7
-        Me.lbltel.Text = "Label8"
         '
         'lbldireccion
         '
@@ -130,9 +133,8 @@ Partial Class frmPrestamos
         Me.lbldireccion.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldireccion.Location = New System.Drawing.Point(178, 77)
         Me.lbldireccion.Name = "lbldireccion"
-        Me.lbldireccion.Size = New System.Drawing.Size(45, 15)
+        Me.lbldireccion.Size = New System.Drawing.Size(0, 15)
         Me.lbldireccion.TabIndex = 6
-        Me.lbldireccion.Text = "Label7"
         '
         'lblnombre
         '
@@ -140,9 +142,8 @@ Partial Class frmPrestamos
         Me.lblnombre.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnombre.Location = New System.Drawing.Point(178, 40)
         Me.lblnombre.Name = "lblnombre"
-        Me.lblnombre.Size = New System.Drawing.Size(45, 15)
+        Me.lblnombre.Size = New System.Drawing.Size(0, 15)
         Me.lblnombre.TabIndex = 5
-        Me.lblnombre.Text = "Label6"
         '
         'Label5
         '
@@ -226,47 +227,47 @@ Partial Class frmPrestamos
         'lbledicion
         '
         Me.lbledicion.AutoSize = True
+        Me.lbledicion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "EDICION", True))
         Me.lbledicion.Location = New System.Drawing.Point(513, 32)
         Me.lbledicion.Name = "lbledicion"
-        Me.lbledicion.Size = New System.Drawing.Size(45, 13)
+        Me.lbledicion.Size = New System.Drawing.Size(0, 13)
         Me.lbledicion.TabIndex = 10
-        Me.lbledicion.Text = "Label17"
         '
         'lblaño
         '
         Me.lblaño.AutoSize = True
+        Me.lblaño.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "AÑO", True))
         Me.lblaño.Location = New System.Drawing.Point(338, 82)
         Me.lblaño.Name = "lblaño"
-        Me.lblaño.Size = New System.Drawing.Size(45, 13)
+        Me.lblaño.Size = New System.Drawing.Size(0, 13)
         Me.lblaño.TabIndex = 9
-        Me.lblaño.Text = "Label16"
         '
         'lblautor
         '
         Me.lblautor.AutoSize = True
+        Me.lblautor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "Autor", True))
         Me.lblautor.Location = New System.Drawing.Point(338, 32)
         Me.lblautor.Name = "lblautor"
-        Me.lblautor.Size = New System.Drawing.Size(45, 13)
+        Me.lblautor.Size = New System.Drawing.Size(0, 13)
         Me.lblautor.TabIndex = 8
-        Me.lblautor.Text = "Label15"
         '
         'lbleditorial
         '
         Me.lbleditorial.AutoSize = True
+        Me.lbleditorial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "Nombre", True))
         Me.lbleditorial.Location = New System.Drawing.Point(161, 82)
         Me.lbleditorial.Name = "lbleditorial"
-        Me.lbleditorial.Size = New System.Drawing.Size(45, 13)
+        Me.lbleditorial.Size = New System.Drawing.Size(0, 13)
         Me.lbleditorial.TabIndex = 7
-        Me.lbleditorial.Text = "Label14"
         '
         'lbltitulo
         '
         Me.lbltitulo.AutoSize = True
+        Me.lbltitulo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "Titulo", True))
         Me.lbltitulo.Location = New System.Drawing.Point(161, 32)
         Me.lbltitulo.Name = "lbltitulo"
-        Me.lbltitulo.Size = New System.Drawing.Size(45, 13)
+        Me.lbltitulo.Size = New System.Drawing.Size(0, 13)
         Me.lbltitulo.TabIndex = 6
-        Me.lbltitulo.Text = "Label13"
         '
         'Label10
         '
@@ -320,6 +321,7 @@ Partial Class frmPrestamos
         '
         'pbfotolibro
         '
+        Me.pbfotolibro.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.BuscarLibroBindingSource, "PORTADA", True))
         Me.pbfotolibro.Location = New System.Drawing.Point(12, 19)
         Me.pbfotolibro.Name = "pbfotolibro"
         Me.pbfotolibro.Size = New System.Drawing.Size(93, 106)
@@ -413,6 +415,7 @@ Partial Class frmPrestamos
         '
         'btnagregar
         '
+        Me.btnagregar.Enabled = False
         Me.btnagregar.Location = New System.Drawing.Point(550, 461)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(104, 23)
@@ -420,27 +423,10 @@ Partial Class frmPrestamos
         Me.btnagregar.Text = "Agregar >>"
         Me.btnagregar.UseVisualStyleBackColor = True
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(689, 102)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(108, 15)
-        Me.Label12.TabIndex = 10
-        Me.Label12.Text = "Fecha de entrega:"
-        '
-        'dtpfecha
-        '
-        Me.dtpfecha.CustomFormat = "dd-MM-yyyy"
-        Me.dtpfecha.Location = New System.Drawing.Point(801, 99)
-        Me.dtpfecha.Name = "dtpfecha"
-        Me.dtpfecha.Size = New System.Drawing.Size(200, 20)
-        Me.dtpfecha.TabIndex = 11
-        '
         'btnrentar
         '
         Me.btnrentar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnrentar.Enabled = False
         Me.btnrentar.Location = New System.Drawing.Point(683, 502)
         Me.btnrentar.Name = "btnrentar"
         Me.btnrentar.Size = New System.Drawing.Size(174, 23)
@@ -458,6 +444,35 @@ Partial Class frmPrestamos
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "prestamos"
         '
+        'BuscarLibroBindingSource
+        '
+        Me.BuscarLibroBindingSource.DataMember = "BuscarLibro"
+        Me.BuscarLibroBindingSource.DataSource = Me.BddbibliotecaDataSet
+        '
+        'BddbibliotecaDataSet
+        '
+        Me.BddbibliotecaDataSet.DataSetName = "BDDBIBLIOTECADataSet"
+        Me.BddbibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BuscarLibroTableAdapter
+        '
+        Me.BuscarLibroTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.TBL_AMONESTACIONESTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_CATEGORIASTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_DET_LIBROSTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_DET_PRESTAMOSTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_EDITORIALESTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_LECTORESTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_LIBROSTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_PRESTAMOSTableAdapter = Nothing
+        Me.TableAdapterManager.TBL_USUARIOSTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'frmPrestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -466,8 +481,6 @@ Partial Class frmPrestamos
         Me.ClientSize = New System.Drawing.Size(1280, 557)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.btnrentar)
-        Me.Controls.Add(Me.dtpfecha)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.btnagregar)
         Me.Controls.Add(Me.dtgRentas)
         Me.Controls.Add(Me.btnbuscarlibro)
@@ -491,6 +504,8 @@ Partial Class frmPrestamos
         Me.GroupBox2.PerformLayout()
         CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BuscarLibroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BddbibliotecaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -513,7 +528,6 @@ Partial Class frmPrestamos
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents pbfotolibro As System.Windows.Forms.PictureBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents txtisbn As System.Windows.Forms.TextBox
@@ -526,13 +540,16 @@ Partial Class frmPrestamos
     Friend WithEvents Cedicion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Ceditorial As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Caño As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents dtpfecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnrentar As System.Windows.Forms.Button
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents BddbibliotecaDataSet As BliblioTec.BDDBIBLIOTECADataSet
     Friend WithEvents lbledicion As System.Windows.Forms.Label
     Friend WithEvents lblaño As System.Windows.Forms.Label
     Friend WithEvents lblautor As System.Windows.Forms.Label
     Friend WithEvents lbleditorial As System.Windows.Forms.Label
     Friend WithEvents lbltitulo As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents BuscarLibroBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents BuscarLibroTableAdapter As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter
+    Friend WithEvents TableAdapterManager As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager
 End Class
