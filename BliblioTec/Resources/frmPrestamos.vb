@@ -20,9 +20,19 @@
         btnagregar.Enabled = False
         btnrentar.Enabled = False
         dtgRentas.Rows.Clear()
+        btnborrar.Enabled = False
     End Sub
     Private Sub btnagregar_Click(sender As System.Object, e As System.EventArgs) Handles btnagregar.Click
         dtgRentas.Rows.Add(txtisbn.Text, lbltitulo.Text, lblautor.Text, lbledicion.Text, lbleditorial.Text, lblaño.Text)
+        btnrentar.Enabled = True
+        Me.txtisbn.Text = ""
+        Me.pbfotolibro.Image = Nothing
+        Me.lbltitulo.Text = ""
+        Me.lblautor.Text = ""
+        Me.lbledicion.Text = ""
+        Me.lbleditorial.Text = ""
+        Me.lblaño.Text = ""
+        btnborrar.Enabled = True
     End Sub
 
     Private Sub frmPrestamos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -52,8 +62,45 @@
     Private Sub btnbuscarlibro_Click(sender As System.Object, e As System.EventArgs) Handles btnbuscarlibro.Click
         Try
             Me.BuscarLibroTableAdapter.Fill(Me.BddbibliotecaDataSet.BuscarLibro, txtisbn.Text)
+            btnagregar.Enabled = True
         Catch ex As System.Exception
             MsgBox("El Libro No esta disponible", MsgBoxStyle.Critical)
         End Try
+    End Sub
+
+    Private Sub btnrentar_Click(sender As System.Object, e As System.EventArgs) Handles btnrentar.Click
+        strSQL = "proAltaPrestamo"
+        comando = New SqlClient.SqlCommand(strSQL, conexion)
+        comando.CommandType = CommandType.StoredProcedure
+        comando.Parameters.Add("@NUMLECTOR", SqlDbType.BigInt).Value = idbusqueda
+        comando.Parameters.Add("@IDUSUARIO", SqlDbType.BigInt).Value = usuid
+        comando.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output
+        If conectar() = True Then
+            Dim folio As Integer = comando.Parameters("@retorno").Value
+            strSQL = "proAltaDetPrestamo"
+            Dim max As Integer = dtgRentas.RowCount
+            For x As Integer = 0 To max - 1 Step 1
+                comando = New SqlClient.SqlCommand(strSQL, conexion)
+                comando.Parameters.Add("@IDPRESTAMO", SqlDbType.BigInt).Value = folio
+                comando.Parameters.Add("@FECHAPRESTAMO", SqlDbType.DateTime).Value = Format(Date.Now().Date, " yyyy-MM-dd")
+                comando.Parameters.Add("@FECHADEV", SqlDbType.DateTime).Value = fechaf
+                comando.Parameters.Add("@ISBN", SqlDbType.BigInt).Value = lblisbn.Text
+                conectar()
+            Next
+            MsgBox("Prestamos Registrados en el sistema", MsgBoxStyle.MsgBoxRight, "Listo")
+        End If
+    End Sub
+
+    Private Sub btnClear_Click(sender As System.Object, e As System.EventArgs) Handles btnClear.Click
+        limpiarCampos()
+    End Sub
+
+    Private Sub btnborrar_Click(sender As System.Object, e As System.EventArgs) Handles btnborrar.Click
+        dtgRentas.Rows.RemoveAt(dtgRentas.CurrentRow.Index)
+        If dtgRentas.RowCount = 0 Then
+            btnrentar.Enabled = False
+            btnborrar.Enabled = False
+        End If
+
     End Sub
 End Class

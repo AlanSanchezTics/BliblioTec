@@ -20,9 +20,13 @@
             'imageBuffer = CByte(dts.Tables("TBL_LECTORES").Rows(0).Item(1))
             'Dim ms As New System.IO.MemoryStream(imageBuffer)
             'Me.pbFotolector.Image = Image.FromStream(MS)
-            Me.btndevolucion.Enabled = True
-            Me.btnmod.Enabled = True
             Me.ViewDevTableAdapter.Fill(Me.BDDBIBLIOTECADataSet.viewDev, idbusqueda)
+            If dtgprestamos.RowCount > 0 Then
+                Me.btndevolucion.Enabled = True
+                Me.btnmod.Enabled = True
+            Else
+                MsgBox("No tiene prestamos pendientes", MsgBoxStyle.Information)
+            End If
         Else
             MsgBox("El numero de lector no esta registrado en el sistema", MsgBoxStyle.Critical, "Lector no Existe")
         End If
@@ -43,7 +47,7 @@
         comando.Parameters.Add("@ISBN", SqlDbType.BigInt).Value = Me.dtgprestamos.CurrentRow.Cells("ISBN").Value
         comando.Parameters.Add("@IDDETPRESTAMOS", SqlDbType.BigInt).Value = Me.dtgprestamos.CurrentRow.Cells("IDDETPRESTAMO").Value
         If conectar() = True Then
-            MsgBox("Libro Recibido", MsgBoxStyle.MsgBoxRight, "Accion Realizada")
+            MsgBox("Libro Recibido", MsgBoxStyle.Information, "Accion Realizada")
             Me.ViewDevTableAdapter.Fill(Me.BDDBIBLIOTECADataSet.viewDev, idbusqueda)
         End If
     End Sub
@@ -58,7 +62,7 @@
             comando.Parameters.Add("@IDDETPRESTAMOS", SqlDbType.BigInt).Value = Me.dtgprestamos.CurrentRow.Cells("IDDETPRESTAMO").Value
             'comando.Parameters.Add("@fechadev",SqlDbType.DateTime).Value =
             If conectar() = True Then
-                MsgBox("La fecha de entrega del libro ha sido modificada", MsgBoxStyle.MsgBoxRight, "Accion Realizada")
+                MsgBox("La fecha de entrega del libro ha sido modificada", MsgBoxStyle.Information, "Accion Realizada")
                 Me.ViewDevTableAdapter.Fill(Me.BDDBIBLIOTECADataSet.viewDev, idbusqueda)
             End If
         End If

@@ -5,6 +5,7 @@
     Public dts As New DataSet
     Public idbusqueda As Long
     Public usuNombre As String
+    Public usuid As Integer
     Public fechaf As Date
 
     Public Sub inicio()

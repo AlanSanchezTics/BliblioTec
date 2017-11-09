@@ -38,6 +38,8 @@ Partial Class frmPrestamos
         Me.btnbuscarlector = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lbledicion = New System.Windows.Forms.Label()
+        Me.BuscarLibroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BddbibliotecaDataSet = New BliblioTec.BDDBIBLIOTECADataSet()
         Me.lblaño = New System.Windows.Forms.Label()
         Me.lblautor = New System.Windows.Forms.Label()
         Me.lbleditorial = New System.Windows.Forms.Label()
@@ -61,17 +63,19 @@ Partial Class frmPrestamos
         Me.btnagregar = New System.Windows.Forms.Button()
         Me.btnrentar = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.BuscarLibroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BddbibliotecaDataSet = New BliblioTec.BDDBIBLIOTECADataSet()
         Me.BuscarLibroTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter()
         Me.TableAdapterManager = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lblisbn = New System.Windows.Forms.Label()
+        Me.btnborrar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BuscarLibroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BddbibliotecaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -206,6 +210,8 @@ Partial Class frmPrestamos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblisbn)
+        Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.lbledicion)
         Me.GroupBox2.Controls.Add(Me.lblaño)
         Me.GroupBox2.Controls.Add(Me.lblautor)
@@ -232,6 +238,16 @@ Partial Class frmPrestamos
         Me.lbledicion.Name = "lbledicion"
         Me.lbledicion.Size = New System.Drawing.Size(0, 13)
         Me.lbledicion.TabIndex = 10
+        '
+        'BuscarLibroBindingSource
+        '
+        Me.BuscarLibroBindingSource.DataMember = "BuscarLibro"
+        Me.BuscarLibroBindingSource.DataSource = Me.BddbibliotecaDataSet
+        '
+        'BddbibliotecaDataSet
+        '
+        Me.BddbibliotecaDataSet.DataSetName = "BDDBIBLIOTECADataSet"
+        Me.BddbibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'lblaño
         '
@@ -444,16 +460,6 @@ Partial Class frmPrestamos
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "prestamos"
         '
-        'BuscarLibroBindingSource
-        '
-        Me.BuscarLibroBindingSource.DataMember = "BuscarLibro"
-        Me.BuscarLibroBindingSource.DataSource = Me.BddbibliotecaDataSet
-        '
-        'BddbibliotecaDataSet
-        '
-        Me.BddbibliotecaDataSet.DataSetName = "BDDBIBLIOTECADataSet"
-        Me.BddbibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'BuscarLibroTableAdapter
         '
         Me.BuscarLibroTableAdapter.ClearBeforeFill = True
@@ -473,12 +479,53 @@ Partial Class frmPrestamos
         Me.TableAdapterManager.TBL_USUARIOSTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Location = New System.Drawing.Point(1193, 12)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 14
+        Me.btnClear.Text = "Limpiar Campos"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label12.Location = New System.Drawing.Point(119, 120)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(40, 15)
+        Me.Label12.TabIndex = 11
+        Me.Label12.Text = "ISBN: "
+        '
+        'lblisbn
+        '
+        Me.lblisbn.AutoSize = True
+        Me.lblisbn.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "ISBN", True))
+        Me.lblisbn.Location = New System.Drawing.Point(161, 121)
+        Me.lblisbn.Name = "lblisbn"
+        Me.lblisbn.Size = New System.Drawing.Size(0, 13)
+        Me.lblisbn.TabIndex = 12
+        '
+        'btnborrar
+        '
+        Me.btnborrar.Enabled = False
+        Me.btnborrar.Location = New System.Drawing.Point(550, 490)
+        Me.btnborrar.Name = "btnborrar"
+        Me.btnborrar.Size = New System.Drawing.Size(104, 23)
+        Me.btnborrar.TabIndex = 15
+        Me.btnborrar.Text = "<< borrar"
+        Me.btnborrar.UseVisualStyleBackColor = True
+        '
         'frmPrestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightYellow
         Me.ClientSize = New System.Drawing.Size(1280, 557)
+        Me.Controls.Add(Me.btnborrar)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.btnrentar)
         Me.Controls.Add(Me.btnagregar)
@@ -502,10 +549,10 @@ Partial Class frmPrestamos
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BuscarLibroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BddbibliotecaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbfotolibro, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgRentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -552,4 +599,8 @@ Partial Class frmPrestamos
     Friend WithEvents BuscarLibroBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents BuscarLibroTableAdapter As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter
     Friend WithEvents TableAdapterManager As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager
+    Friend WithEvents btnClear As System.Windows.Forms.Button
+    Friend WithEvents lblisbn As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents btnborrar As System.Windows.Forms.Button
 End Class

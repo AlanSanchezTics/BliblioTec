@@ -7,9 +7,11 @@
         comando.Parameters.Add("@usuClave", SqlDbType.VarChar, 20).Value = Me.txtclave.Text
         comando.Parameters.Add("@usuNombre", SqlDbType.VarChar, 20).Direction = ParameterDirection.Output
         comando.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output
+        comando.Parameters.Add("@usuID", SqlDbType.BigInt).Direction = ParameterDirection.Output
         If conectar() = True Then
             If comando.Parameters("@retorno").Value = 1 Then
                 usuNombre = comando.Parameters("@usuNombre").Value
+                usuid = comando.Parameters("@usuID").Value
                 Dim ven As New frmMenu
                 ven.Show()
                 Me.Hide()
