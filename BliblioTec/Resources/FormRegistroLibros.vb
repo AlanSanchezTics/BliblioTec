@@ -23,8 +23,9 @@
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
+
         Dim ms As New System.IO.MemoryStream
         PictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
-        'aqui va el parametro con la igualacion ms.GetBuffer();
+        'aqui va el parametro con la igualacion ms.GetBuffer();  comando.parameters.add("@fotolibro",image).value=ms.GetBuffer();
     End Sub
 End Class

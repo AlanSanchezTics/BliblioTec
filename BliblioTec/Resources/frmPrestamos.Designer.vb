@@ -37,9 +37,11 @@ Partial Class frmPrestamos
         Me.pbFotolector = New System.Windows.Forms.PictureBox()
         Me.btnbuscarlector = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.lbledicion = New System.Windows.Forms.Label()
+        Me.lblisbn = New System.Windows.Forms.Label()
         Me.BuscarLibroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BddbibliotecaDataSet = New BliblioTec.BDDBIBLIOTECADataSet()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lbledicion = New System.Windows.Forms.Label()
         Me.lblaño = New System.Windows.Forms.Label()
         Me.lblautor = New System.Windows.Forms.Label()
         Me.lbleditorial = New System.Windows.Forms.Label()
@@ -54,21 +56,20 @@ Partial Class frmPrestamos
         Me.txtisbn = New System.Windows.Forms.TextBox()
         Me.btnbuscarlibro = New System.Windows.Forms.Button()
         Me.dtgRentas = New System.Windows.Forms.DataGridView()
+        Me.btnagregar = New System.Windows.Forms.Button()
+        Me.btnrentar = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnborrar = New System.Windows.Forms.Button()
+        Me.BuscarLibroTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter()
+        Me.TableAdapterManager = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager()
         Me.Cisbn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ctitulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cautor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cedicion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ceditorial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Caño = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnagregar = New System.Windows.Forms.Button()
-        Me.btnrentar = New System.Windows.Forms.Button()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.BuscarLibroTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.BuscarLibroTableAdapter()
-        Me.TableAdapterManager = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.lblisbn = New System.Windows.Forms.Label()
-        Me.btnborrar = New System.Windows.Forms.Button()
+        Me.FechaDev = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -230,14 +231,14 @@ Partial Class frmPrestamos
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos del libro"
         '
-        'lbledicion
+        'lblisbn
         '
-        Me.lbledicion.AutoSize = True
-        Me.lbledicion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "EDICION", True))
-        Me.lbledicion.Location = New System.Drawing.Point(513, 32)
-        Me.lbledicion.Name = "lbledicion"
-        Me.lbledicion.Size = New System.Drawing.Size(0, 13)
-        Me.lbledicion.TabIndex = 10
+        Me.lblisbn.AutoSize = True
+        Me.lblisbn.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "ISBN", True))
+        Me.lblisbn.Location = New System.Drawing.Point(161, 121)
+        Me.lblisbn.Name = "lblisbn"
+        Me.lblisbn.Size = New System.Drawing.Size(0, 13)
+        Me.lblisbn.TabIndex = 12
         '
         'BuscarLibroBindingSource
         '
@@ -248,6 +249,25 @@ Partial Class frmPrestamos
         '
         Me.BddbibliotecaDataSet.DataSetName = "BDDBIBLIOTECADataSet"
         Me.BddbibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label12.Location = New System.Drawing.Point(119, 120)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(40, 15)
+        Me.Label12.TabIndex = 11
+        Me.Label12.Text = "ISBN: "
+        '
+        'lbledicion
+        '
+        Me.lbledicion.AutoSize = True
+        Me.lbledicion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "EDICION", True))
+        Me.lbledicion.Location = New System.Drawing.Point(513, 32)
+        Me.lbledicion.Name = "lbledicion"
+        Me.lbledicion.Size = New System.Drawing.Size(0, 13)
+        Me.lbledicion.TabIndex = 10
         '
         'lblaño
         '
@@ -384,50 +404,16 @@ Partial Class frmPrestamos
         Me.dtgRentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dtgRentas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgRentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgRentas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cisbn, Me.Ctitulo, Me.Cautor, Me.Cedicion, Me.Ceditorial, Me.Caño})
+        Me.dtgRentas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cisbn, Me.Ctitulo, Me.Cautor, Me.Cedicion, Me.Ceditorial, Me.Caño, Me.FechaDev})
         Me.dtgRentas.Location = New System.Drawing.Point(677, 128)
         Me.dtgRentas.MultiSelect = False
         Me.dtgRentas.Name = "dtgRentas"
         Me.dtgRentas.ReadOnly = True
+        Me.dtgRentas.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtgRentas.RowHeadersVisible = False
+        Me.dtgRentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgRentas.Size = New System.Drawing.Size(546, 356)
         Me.dtgRentas.TabIndex = 8
-        '
-        'Cisbn
-        '
-        Me.Cisbn.HeaderText = "ISBN"
-        Me.Cisbn.Name = "Cisbn"
-        Me.Cisbn.ReadOnly = True
-        '
-        'Ctitulo
-        '
-        Me.Ctitulo.HeaderText = "Titulo"
-        Me.Ctitulo.Name = "Ctitulo"
-        Me.Ctitulo.ReadOnly = True
-        '
-        'Cautor
-        '
-        Me.Cautor.HeaderText = "Autor"
-        Me.Cautor.Name = "Cautor"
-        Me.Cautor.ReadOnly = True
-        '
-        'Cedicion
-        '
-        Me.Cedicion.HeaderText = "Edicion"
-        Me.Cedicion.Name = "Cedicion"
-        Me.Cedicion.ReadOnly = True
-        '
-        'Ceditorial
-        '
-        Me.Ceditorial.HeaderText = "Editorial"
-        Me.Ceditorial.Name = "Ceditorial"
-        Me.Ceditorial.ReadOnly = True
-        '
-        'Caño
-        '
-        Me.Caño.HeaderText = "Año"
-        Me.Caño.Name = "Caño"
-        Me.Caño.ReadOnly = True
         '
         'btnagregar
         '
@@ -460,6 +446,26 @@ Partial Class frmPrestamos
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "prestamos"
         '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Location = New System.Drawing.Point(1193, 12)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 14
+        Me.btnClear.Text = "Limpiar Campos"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'btnborrar
+        '
+        Me.btnborrar.Enabled = False
+        Me.btnborrar.Location = New System.Drawing.Point(550, 490)
+        Me.btnborrar.Name = "btnborrar"
+        Me.btnborrar.Size = New System.Drawing.Size(104, 23)
+        Me.btnborrar.TabIndex = 15
+        Me.btnborrar.Text = "<< borrar"
+        Me.btnborrar.UseVisualStyleBackColor = True
+        '
         'BuscarLibroTableAdapter
         '
         Me.BuscarLibroTableAdapter.ClearBeforeFill = True
@@ -479,44 +485,51 @@ Partial Class frmPrestamos
         Me.TableAdapterManager.TBL_USUARIOSTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'btnClear
+        'Cisbn
         '
-        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.Location = New System.Drawing.Point(1193, 12)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 14
-        Me.btnClear.Text = "Limpiar Campos"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.Cisbn.FillWeight = 50.0!
+        Me.Cisbn.HeaderText = "ISBN"
+        Me.Cisbn.Name = "Cisbn"
+        Me.Cisbn.ReadOnly = True
         '
-        'Label12
+        'Ctitulo
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Label12.Location = New System.Drawing.Point(119, 120)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(40, 15)
-        Me.Label12.TabIndex = 11
-        Me.Label12.Text = "ISBN: "
+        Me.Ctitulo.HeaderText = "Titulo"
+        Me.Ctitulo.Name = "Ctitulo"
+        Me.Ctitulo.ReadOnly = True
         '
-        'lblisbn
+        'Cautor
         '
-        Me.lblisbn.AutoSize = True
-        Me.lblisbn.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BuscarLibroBindingSource, "ISBN", True))
-        Me.lblisbn.Location = New System.Drawing.Point(161, 121)
-        Me.lblisbn.Name = "lblisbn"
-        Me.lblisbn.Size = New System.Drawing.Size(0, 13)
-        Me.lblisbn.TabIndex = 12
+        Me.Cautor.HeaderText = "Autor"
+        Me.Cautor.Name = "Cautor"
+        Me.Cautor.ReadOnly = True
         '
-        'btnborrar
+        'Cedicion
         '
-        Me.btnborrar.Enabled = False
-        Me.btnborrar.Location = New System.Drawing.Point(550, 490)
-        Me.btnborrar.Name = "btnborrar"
-        Me.btnborrar.Size = New System.Drawing.Size(104, 23)
-        Me.btnborrar.TabIndex = 15
-        Me.btnborrar.Text = "<< borrar"
-        Me.btnborrar.UseVisualStyleBackColor = True
+        Me.Cedicion.FillWeight = 50.0!
+        Me.Cedicion.HeaderText = "Edicion"
+        Me.Cedicion.Name = "Cedicion"
+        Me.Cedicion.ReadOnly = True
+        '
+        'Ceditorial
+        '
+        Me.Ceditorial.HeaderText = "Editorial"
+        Me.Ceditorial.Name = "Ceditorial"
+        Me.Ceditorial.ReadOnly = True
+        '
+        'Caño
+        '
+        Me.Caño.FillWeight = 50.0!
+        Me.Caño.HeaderText = "Año"
+        Me.Caño.Name = "Caño"
+        Me.Caño.ReadOnly = True
+        '
+        'FechaDev
+        '
+        Me.FechaDev.FillWeight = 95.0!
+        Me.FechaDev.HeaderText = "Fecha de devolucion"
+        Me.FechaDev.Name = "FechaDev"
+        Me.FechaDev.ReadOnly = True
         '
         'frmPrestamos
         '
@@ -581,12 +594,6 @@ Partial Class frmPrestamos
     Friend WithEvents btnbuscarlibro As System.Windows.Forms.Button
     Friend WithEvents dtgRentas As System.Windows.Forms.DataGridView
     Friend WithEvents btnagregar As System.Windows.Forms.Button
-    Friend WithEvents Cisbn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Ctitulo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Cautor As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Cedicion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Ceditorial As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Caño As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnrentar As System.Windows.Forms.Button
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents BddbibliotecaDataSet As BliblioTec.BDDBIBLIOTECADataSet
@@ -603,4 +610,11 @@ Partial Class frmPrestamos
     Friend WithEvents lblisbn As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents btnborrar As System.Windows.Forms.Button
+    Friend WithEvents Cisbn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Ctitulo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Cautor As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Cedicion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Ceditorial As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Caño As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FechaDev As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
