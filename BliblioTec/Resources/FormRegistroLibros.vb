@@ -1,6 +1,10 @@
 ﻿Public Class FormRegistroLibros
 
     Private Sub FormRegistroLibros_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'BDDBIBLIOTECADataSet.TBL_LIBROS' table. You can move, or remove it, as needed.
+        Call inicio()
+        Me.TBL_LIBROSTableAdapter.Connection = conexion
+        Me.TBL_LIBROSTableAdapter.Fill(Me.BDDBIBLIOTECADataSet.TBL_LIBROS)
         Dim msg As MsgBoxResult
         TextTitulo.Visible = True
         Textautor.Visible = True

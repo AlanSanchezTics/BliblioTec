@@ -22,6 +22,7 @@ Partial Class FormRegistroLibros
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -44,7 +45,12 @@ Partial Class FormRegistroLibros
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.BDDBIBLIOTECADataSet = New BliblioTec.BDDBIBLIOTECADataSet()
+        Me.TBLLIBROSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TBL_LIBROSTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TBL_LIBROSTableAdapter()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDDBIBLIOTECADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TBLLIBROSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -215,12 +221,16 @@ Partial Class FormRegistroLibros
         '
         'Comtitulo
         '
+        Me.Comtitulo.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TBLLIBROSBindingSource, "Titulo", True))
+        Me.Comtitulo.DataSource = Me.TBLLIBROSBindingSource
+        Me.Comtitulo.DisplayMember = "Titulo"
         Me.Comtitulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Comtitulo.FormattingEnabled = True
         Me.Comtitulo.Location = New System.Drawing.Point(202, 158)
         Me.Comtitulo.Name = "Comtitulo"
         Me.Comtitulo.Size = New System.Drawing.Size(225, 21)
         Me.Comtitulo.TabIndex = 18
+        Me.Comtitulo.ValueMember = "Titulo"
         '
         'Button2
         '
@@ -251,6 +261,20 @@ Partial Class FormRegistroLibros
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'BDDBIBLIOTECADataSet
+        '
+        Me.BDDBIBLIOTECADataSet.DataSetName = "BDDBIBLIOTECADataSet"
+        Me.BDDBIBLIOTECADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TBLLIBROSBindingSource
+        '
+        Me.TBLLIBROSBindingSource.DataMember = "TBL_LIBROS"
+        Me.TBLLIBROSBindingSource.DataSource = Me.BDDBIBLIOTECADataSet
+        '
+        'TBL_LIBROSTableAdapter
+        '
+        Me.TBL_LIBROSTableAdapter.ClearBeforeFill = True
         '
         'FormRegistroLibros
         '
@@ -289,6 +313,8 @@ Partial Class FormRegistroLibros
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormRegistroLibros"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDDBIBLIOTECADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TBLLIBROSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -315,4 +341,7 @@ Partial Class FormRegistroLibros
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents BDDBIBLIOTECADataSet As BliblioTec.BDDBIBLIOTECADataSet
+    Friend WithEvents TBLLIBROSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TBL_LIBROSTableAdapter As BliblioTec.BDDBIBLIOTECADataSetTableAdapters.TBL_LIBROSTableAdapter
 End Class

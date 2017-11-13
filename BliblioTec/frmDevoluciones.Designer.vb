@@ -37,9 +37,12 @@ Partial Class frmDevoluciones
         Me.txtnlector = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgprestamos = New System.Windows.Forms.DataGridView()
+        Me.ViewDevBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDDBIBLIOTECADataSet = New BliblioTec.BDDBIBLIOTECADataSet()
         Me.btndevolucion = New System.Windows.Forms.Button()
         Me.btnmod = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.ViewDevTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.viewDevTableAdapter()
         Me.IDDETPRESTAMO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Titulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,9 +50,6 @@ Partial Class frmDevoluciones
         Me.FechaPrestamo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaDevol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ExisteDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ViewDevBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDDBIBLIOTECADataSet = New BliblioTec.BDDBIBLIOTECADataSet()
-        Me.ViewDevTableAdapter = New BliblioTec.BDDBIBLIOTECADataSetTableAdapters.viewDevTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbFotolector, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -218,6 +218,16 @@ Partial Class frmDevoluciones
         Me.dtgprestamos.Size = New System.Drawing.Size(550, 285)
         Me.dtgprestamos.TabIndex = 8
         '
+        'ViewDevBindingSource
+        '
+        Me.ViewDevBindingSource.DataMember = "viewDev"
+        Me.ViewDevBindingSource.DataSource = Me.BDDBIBLIOTECADataSet
+        '
+        'BDDBIBLIOTECADataSet
+        '
+        Me.BDDBIBLIOTECADataSet.DataSetName = "BDDBIBLIOTECADataSet"
+        Me.BDDBIBLIOTECADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'btndevolucion
         '
         Me.btndevolucion.Enabled = False
@@ -248,6 +258,10 @@ Partial Class frmDevoluciones
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Devoluciones"
         '
+        'ViewDevTableAdapter
+        '
+        Me.ViewDevTableAdapter.ClearBeforeFill = True
+        '
         'IDDETPRESTAMO
         '
         Me.IDDETPRESTAMO.DataPropertyName = "ID_DET_PRESTAMO"
@@ -259,10 +273,10 @@ Partial Class frmDevoluciones
         'ISBN
         '
         Me.ISBN.DataPropertyName = "ISBN"
+        Me.ISBN.FillWeight = 50.0!
         Me.ISBN.HeaderText = "ISBN"
         Me.ISBN.Name = "ISBN"
         Me.ISBN.ReadOnly = True
-        Me.ISBN.Visible = False
         '
         'Titulo
         '
@@ -299,20 +313,6 @@ Partial Class frmDevoluciones
         Me.ExisteDataGridViewCheckBoxColumn.Name = "ExisteDataGridViewCheckBoxColumn"
         Me.ExisteDataGridViewCheckBoxColumn.ReadOnly = True
         Me.ExisteDataGridViewCheckBoxColumn.Visible = False
-        '
-        'ViewDevBindingSource
-        '
-        Me.ViewDevBindingSource.DataMember = "viewDev"
-        Me.ViewDevBindingSource.DataSource = Me.BDDBIBLIOTECADataSet
-        '
-        'BDDBIBLIOTECADataSet
-        '
-        Me.BDDBIBLIOTECADataSet.DataSetName = "BDDBIBLIOTECADataSet"
-        Me.BDDBIBLIOTECADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ViewDevTableAdapter
-        '
-        Me.ViewDevTableAdapter.ClearBeforeFill = True
         '
         'frmDevoluciones
         '
